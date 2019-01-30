@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState } from '../../app.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-detalle',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
+    this.store.select('ingresoEgreso').subscribe((ingresoEgreso) => {
+      console.log(ingresoEgreso.items);
+    });
   }
 
 }
