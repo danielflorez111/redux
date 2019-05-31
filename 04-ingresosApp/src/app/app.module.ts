@@ -11,6 +11,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -22,6 +24,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { environment } from '../environments/environment.prod';
+import { OrdenIngresoEgresoPipe } from './ingreso-egreso/orden-ingreso-egreso.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { environment } from '../environments/environment.prod';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoEgresoPipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,8 @@ import { environment } from '../environments/environment.prod';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
-    })
+    }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
